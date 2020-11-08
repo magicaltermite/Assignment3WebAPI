@@ -28,6 +28,9 @@ namespace Assignment3WebAPI
             services.AddControllers();
             services.AddScoped<IAdultService, AdultService>();
             services.AddScoped<IUserService, InMemoryUserService>();
+            
+            // Register the swagger generator, defining 1 or more swagger documents
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +38,15 @@ namespace Assignment3WebAPI
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
+            
+            // Enable middleware to serve generated swagger as a json endpoint
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui
+            // specifying the swagger JSON endpoint
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("v1/swagger.json", "My API V1");
+            });
 
             app.UseHttpsRedirection();
 
