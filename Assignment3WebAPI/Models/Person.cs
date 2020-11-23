@@ -7,39 +7,40 @@ using System.Text.Json.Serialization;
 namespace Assignment3WebAPI.Models {
 public class Person {
     
+    [Required, MaxLength(4)]
     [JsonPropertyName("id")]
     public int Id { get; set; }
-    [NotNull]
     
+    [NotNull]
     [JsonPropertyName("firstName")]
     public string FirstName { get; set; }
+
     [NotNull]
-    
     [JsonPropertyName("lastName")]
     public string LastName { get; set; }
    
     [ValidHairColor]
     [JsonPropertyName("hairColor")]
     public string HairColor { get; set; }
+    
     [NotNull]
-  
     [ValidEyeColor]
     [JsonPropertyName("eyeColor")]
     public string EyeColor { get; set; }
-    [NotNull, Range(0, 125)]
     
+    [NotNull, Range(0, 125)]
     [JsonPropertyName("age")]
     public int Age { get; set; }
-    [NotNull, Range(1, 250)]
     
+    [NotNull, Range(1, 250)]
     [JsonPropertyName("weight")]
     public float Weight { get; set; }
-    [NotNull, Range(30, 250)]
     
+    [NotNull, Range(30, 250)]
     [JsonPropertyName("height")]
     public int Height { get; set; }
-    [NotNull]
     
+    [NotNull]
     [JsonPropertyName("sex")]
     public string Sex { get; set; }
 

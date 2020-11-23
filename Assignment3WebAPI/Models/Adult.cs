@@ -3,6 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace Assignment3WebAPI.Models {
 public class Adult : Person {
+    
+    
     [JsonPropertyName("jobTitle")]
     public string JobTitle { get; set; }
 

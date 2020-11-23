@@ -1,1 +1,23 @@
-[{"jobTitle":"Student","id":1,"firstName":"Markus","lastName":"Lorensen","hairColor":"brown","eyeColor":"Blue","age":21,"weight":65,"height":185,"sex":"M"},{"jobTitle":"Student","id":2,"firstName":"Sonny","lastName":"Haack","hairColor":"Blond","eyeColor":"Blue","age":30,"weight":65,"height":180,"sex":"Male"}]
+[{
+  "jobTitle":"Student",
+  "id":1,
+  "firstName":"Markus",
+  "lastName":"Lorensen",
+  "hairColor":"brown",
+  "eyeColor":"Blue",
+  "age":21,
+  "weight":65,
+  "height":185,
+  "sex":"M"},
+{
+  "jobTitle":"Student",
+  "id":2,
+  "firstName":"Sonny",
+  "lastName":"Haack",
+  "hairColor":"Blond",
+  "eyeColor":"Blue",
+  "age":30,
+  "weight":65,
+  "height":180,
+  "sex":"Male"
+}]
