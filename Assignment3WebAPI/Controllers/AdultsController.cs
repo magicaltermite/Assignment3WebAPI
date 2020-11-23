@@ -17,6 +17,7 @@ namespace Assignment3WebAPI.Controllers
         
         public AdultsController(IAdultService adultService) {
             this.adultService = adultService;
+            Console.WriteLine("Hello");
         }
 
         
