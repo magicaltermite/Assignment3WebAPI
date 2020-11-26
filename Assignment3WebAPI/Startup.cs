@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment3WebAPI.Data;
 using Assignment3WebAPI.Models;
+using Assignment3WebAPI.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +27,8 @@ namespace Assignment3WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
-            services.AddScoped<IAdultService, AdultService>();
+            services.AddDbContext<AdultDbContext>();
+            services.AddScoped<IAdultService, SqliteAdultsService>();
             services.AddScoped<IUserService, InMemoryUserService>();
             
             // Register the swagger generator, defining 1 or more swagger documents

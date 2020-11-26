@@ -12,19 +12,19 @@ namespace Assignment3WebAPI.Controllers
     [Route("[controller]")]
     public class AdultsController : ControllerBase
     {
-        private IAdultService adultService;
+        private IAdultService adultsService;
         
         
         public AdultsController(IAdultService adultService) {
-            this.adultService = adultService;
+            this.adultsService = adultService;
             Console.WriteLine("Hello");
         }
 
         
         [HttpGet]
-        public async Task<ActionResult<IList<Adult>>> GetAdults() {
+        public async Task<ActionResult<IList<Adult>>> GetAdults([FromQuery] int? id) {
             try {
-                IList<Adult> adults = await adultService.GetAdultsAsync();
+                IList<Adult> adults = await adultsService.GetAdultsAsync();
                 return Ok(adults);
             }
             catch (Exception e) {
@@ -41,8 +41,8 @@ namespace Assignment3WebAPI.Controllers
             }
 
             try {
-                Adult added = await adultService.AddAdultAsync(adult);
-                return Created($"/{added.Id}", added);
+                Adult added = await adultsService.AddAdultAsync(adult);
+                return Created($"/{added.Id}", added); 
             }
             catch (Exception e) {
                 Console.WriteLine(e);
@@ -55,7 +55,7 @@ namespace Assignment3WebAPI.Controllers
         [Route("{id:int}")]
         public async Task<ActionResult> DeleteAdult([FromRoute] int id) {
             try {
-                await adultService.RemoveAdultAsync(id);
+                await adultsService.RemoveAdultAsync(id);
                 return Ok();
             }
             catch (Exception e) {
@@ -69,7 +69,7 @@ namespace Assignment3WebAPI.Controllers
         [Route("{id:int}")]
         public async Task<ActionResult<Adult>> UpdateAdult([FromBody] Adult adult) {
             try {
-                Adult updatedAdult = await adultService.UpdateAdultAsync(adult);
+                Adult updatedAdult = await adultsService.UpdateAdultAsync(adult);
                 return Ok(updatedAdult);
             }
             catch (Exception e) {

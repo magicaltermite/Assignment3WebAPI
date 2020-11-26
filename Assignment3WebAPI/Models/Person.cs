@@ -8,7 +8,7 @@ namespace Assignment3WebAPI.Models {
 public class Person {
     
     [Required, MaxLength(4)]
-    [JsonPropertyName("id")]
+    [JsonPropertyName("id"), Key]
     public int Id { get; set; }
     
     [NotNull]

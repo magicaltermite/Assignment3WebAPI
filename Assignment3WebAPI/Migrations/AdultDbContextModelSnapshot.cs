@@ -19,6 +19,7 @@ namespace Assignment3WebAPI.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasMaxLength(4)
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Age")
