@@ -1,7 +1,10 @@
-﻿namespace Assignment3WebAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Assignment3WebAPI.Models
 {
     public class User 
     {
+        [Key]
         public string UserName { get; set; }
         public string Domain { get; set; }
         public string City { get; set; }

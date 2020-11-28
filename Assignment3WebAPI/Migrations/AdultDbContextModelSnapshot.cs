@@ -19,7 +19,6 @@ namespace Assignment3WebAPI.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(4)
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Age")
@@ -38,6 +37,8 @@ namespace Assignment3WebAPI.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("JobTitle")
+                        .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
@@ -52,6 +53,34 @@ namespace Assignment3WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Adults");
+                });
+
+            modelBuilder.Entity("Assignment3WebAPI.Models.User", b =>
+                {
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("BirthYear")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("City")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Domain")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Role")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("SecurityLevel")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserName");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

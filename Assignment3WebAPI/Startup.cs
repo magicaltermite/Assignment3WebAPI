@@ -29,7 +29,7 @@ namespace Assignment3WebAPI
             services.AddControllers();
             services.AddDbContext<AdultDbContext>();
             services.AddScoped<IAdultService, SqliteAdultsService>();
-            services.AddScoped<IUserService, InMemoryUserService>();
+            services.AddScoped<IUserService, SqliteUserService>();
             
             // Register the swagger generator, defining 1 or more swagger documents
             services.AddSwaggerGen();
