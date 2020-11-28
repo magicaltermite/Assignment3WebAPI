@@ -7,8 +7,8 @@ using System.Text.Json.Serialization;
 namespace Assignment3WebAPI.Models {
 public class Person {
     
-    [Required, MaxLength(4)]
-    [JsonPropertyName("id"), Key]
+    [Key]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
     
     [NotNull]
