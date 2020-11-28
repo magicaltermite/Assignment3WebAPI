@@ -21,9 +21,7 @@ namespace Assignment3WebAPI.Data
         {
             User first = ctx.Users.FirstOrDefault(user => user.UserName.Equals(userName));
             
-            if (ctx.Users == null) {
-                InsertUser();
-            }
+            
             
             if (first == null) {
                 throw new Exception("User not found");
@@ -36,19 +34,7 @@ namespace Assignment3WebAPI.Data
             return first;
         }
 
-        private async Task InsertUser() {
-            User sonny = new User {
-                UserName = "Sonny",
-                SecurityLevel = 5,
-                Password = "123",
-            };
-            
-            
-            using (AdultDbContext dbCtx = new AdultDbContext()) {
-                await dbCtx.Users.AddAsync(sonny);
-                await dbCtx.SaveChangesAsync();
-            }
-        }
+        
         
     }
 }
